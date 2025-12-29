@@ -75,8 +75,8 @@ describe("chain/client", () => {
     expect(() => getPublicClient(config, "eip155:1")).toThrow(HotSweepError);
     try {
       getPublicClient(config, "eip155:1");
-    } catch (e: any) {
-      expect(e.code).toBe(ErrorCodes.CHAIN_DISABLED);
+    } catch (e) {
+      expect((e as HotSweepError).code).toBe(ErrorCodes.CHAIN_DISABLED);
     }
   });
 
