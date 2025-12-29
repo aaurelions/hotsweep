@@ -1,5 +1,11 @@
 # @hotsweep/cli
 
+## 0.0.4
+
+### Patch Changes
+
+- fix: add shebang and correct binary path for npx execution
+
 ## 0.0.3
 
 ### Patch Changes
