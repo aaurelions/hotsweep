@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * HotSweep CLI - Command Line Interface
  */

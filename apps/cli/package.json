@@ -4,7 +4,7 @@
   "description": "Command-line interface for HotSweep",
   "type": "module",
   "bin": {
-    "sweep": "./dist/bin/sweep.js"
+    "sweep": "./dist/bin/sweep.mjs"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
