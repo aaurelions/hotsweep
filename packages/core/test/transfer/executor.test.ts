@@ -11,11 +11,8 @@ import {
 import {
   type TransferOptions,
   type HotSweepConfig,
-  type SweepStrategy,
   ErrorCodes,
 } from "@hotsweep/types";
-
-        strategy: "unsupported" as SweepStrategy,
 import { startTestEnv } from "../prool";
 import { clearClientCache } from "../../src/chain/client";
 
@@ -377,7 +374,9 @@ describe("transfer/executor", () => {
       };
       const result = await executeTransfer(contextWithoutSigner, options);
       expect(result.success).toBe(false);
-      expect(result.error.code).toBe(ErrorCodes.WALLET_KEY_NOT_FOUND);
+      if (!result.success) {
+        expect(result.error.code).toBe(ErrorCodes.WALLET_KEY_NOT_FOUND);
+      }
     });
 
     it("should fail for unsupported strategy", async () => {
@@ -387,7 +386,7 @@ describe("transfer/executor", () => {
         chain: "anvil",
         token: "LGCY",
         amount: "1",
-        strategy: "unsupported" as any,
+        strategy: "unsupported" as unknown as any, // keep for test but cast
       };
       const result = await executeTransfer(testContext, options);
       expect(result.success).toBe(false);

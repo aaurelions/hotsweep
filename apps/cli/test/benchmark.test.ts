@@ -121,7 +121,11 @@ describe("CLI Benchmark: Transfer Strategy", () => {
     await fundEth(userAddress, parseEther("1")); // Fund relayer
 
     // Mock process.exit to prevent test termination
-    const exitSpy = vi.spyOn(process, "exit").mockImplementation((() => {}) as unknown as (code?: number | string | null | undefined) => never);
+    const exitSpy = vi
+      .spyOn(process, "exit")
+      .mockImplementation((() => {}) as unknown as (
+        code?: number | string | null | undefined
+      ) => never);
 
     try {
       // Execute CLI command
@@ -158,11 +162,9 @@ describe("CLI Benchmark: Transfer Strategy", () => {
 
     const exitSpy = vi
       .spyOn(process, "exit")
-      .mockImplementation(
-        (() => {}) as unknown as (
-          code?: number | string | null | undefined
-        ) => never
-      );
+      .mockImplementation((() => {}) as unknown as (
+        code?: number | string | null | undefined
+      ) => never);
 
     try {
       await transferCommand({
@@ -200,11 +202,9 @@ describe("CLI Benchmark: Transfer Strategy", () => {
 
     const exitSpy = vi
       .spyOn(process, "exit")
-      .mockImplementation(
-        (() => {}) as unknown as (
-          code?: number | string | null | undefined
-        ) => never
-      );
+      .mockImplementation((() => {}) as unknown as (
+        code?: number | string | null | undefined
+      ) => never);
 
     await transferCommand({
       from: userIndex.toString(),
@@ -233,11 +233,9 @@ describe("CLI Benchmark: Transfer Strategy", () => {
 
     const exitSpy = vi
       .spyOn(process, "exit")
-      .mockImplementation(
-        (() => {}) as unknown as (
-          code?: number | string | null | undefined
-        ) => never
-      );
+      .mockImplementation((() => {}) as unknown as (
+        code?: number | string | null | undefined
+      ) => never);
 
     try {
       await transferCommand({

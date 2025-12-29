@@ -230,7 +230,8 @@ describe("config/dotpath", () => {
       );
 
       expect(
-        (result.settings as { newSetting: { nested: string } }).newSetting.nested
+        (result.settings as { newSetting: { nested: string } }).newSetting
+          .nested
       ).toBe("value");
     });
 

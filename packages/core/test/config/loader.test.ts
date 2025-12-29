@@ -343,7 +343,7 @@ describe("config/loader", () => {
     });
 
     it("should return undefined for unknown chain", () => {
-import type { CAIP2ChainId } from "@hotsweep/types";
+      import type { CAIP2ChainId } from "@hotsweep/types";
 
       const token = getTokenConfig(
         validConfig,
