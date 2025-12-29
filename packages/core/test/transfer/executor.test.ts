@@ -386,7 +386,7 @@ describe("transfer/executor", () => {
         chain: "anvil",
         token: "LGCY",
         amount: "1",
-        strategy: "unsupported" as unknown as any, // keep for test but cast
+        strategy: "unsupported" as unknown as SweepStrategy, // keep for test but cast
       };
       const result = await executeTransfer(testContext, options);
       expect(result.success).toBe(false);
