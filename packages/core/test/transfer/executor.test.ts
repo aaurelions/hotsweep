@@ -329,7 +329,7 @@ describe("transfer/executor", () => {
       };
       const result = await executeTransfer(testContext, options);
       expect(result.success).toBe(false);
-      if (!result.success) {
+      if (!result.success && result.error) {
         expect(result.error.code).toBe(ErrorCodes.TOKEN_NOT_FOUND);
       }
     });

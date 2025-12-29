@@ -343,14 +343,11 @@ describe("config/loader", () => {
     });
 
     it("should return undefined for unknown chain", () => {
-      import type { CAIP2ChainId } from "@hotsweep/types";
-
       const token = getTokenConfig(
         validConfig,
         "eip155:999" as CAIP2ChainId,
         "ETH"
       );
-
       expect(token).toBeUndefined();
     });
   });
