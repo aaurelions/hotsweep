@@ -12,7 +12,14 @@ import {
   resolveToAddresses,
 } from "../../src/address/parser";
 import { HotSweepError } from "@hotsweep/types";
-import type { WalletConfig } from "@hotsweep/types";
+import type {
+  WalletConfig,
+  AddressSpecIndex,
+  AddressSpecAddress,
+  AddressSpecIndices,
+  AddressSpecRange,
+  AddressSpecLabel,
+} from "@hotsweep/types";
 
 describe("address/parser", () => {
   // ============================================================================
@@ -46,7 +53,7 @@ describe("address/parser", () => {
         const result = parseAddressSpec(42);
 
         expect(result.type).toBe("index");
-        expect((result as any).value).toBe(42);
+        expect((result as AddressSpecIndex).value).toBe(42);
       });
     });
 
@@ -55,7 +62,7 @@ describe("address/parser", () => {
         const result = parseAddressSpec("42");
 
         expect(result.type).toBe("index");
-        expect((result as any).value).toBe(42);
+        expect((result as AddressSpecIndex).value).toBe(42);
       });
 
       it("should parse Ethereum address", () => {
@@ -64,42 +71,42 @@ describe("address/parser", () => {
         const result = parseAddressSpec(address);
 
         expect(result.type).toBe("address");
-        expect((result as any).value).toBe(address);
+        expect((result as AddressSpecAddress).value).toBe(address);
       });
 
       it("should parse comma-separated indices", () => {
         const result = parseAddressSpec("1,5,10,20");
 
         expect(result.type).toBe("indices");
-        expect((result as any).value).toEqual([1, 5, 10, 20]);
+        expect((result as AddressSpecIndices).value).toEqual([1, 5, 10, 20]);
       });
 
       it("should parse range string", () => {
         const result = parseAddressSpec("0-10");
 
         expect(result.type).toBe("range");
-        expect((result as any).value).toBe("0-10");
+        expect((result as AddressSpecRange).value).toBe("0-10");
       });
 
       it("should parse complex range string", () => {
         const result = parseAddressSpec("0-10,99,500-505");
 
         expect(result.type).toBe("range");
-        expect((result as any).value).toBe("0-10,99,500-505");
+        expect((result as AddressSpecRange).value).toBe("0-10,99,500-505");
       });
 
       it("should parse wallet label", () => {
         const result = parseAddressSpec("hot-wallet", mockWallets);
 
         expect(result.type).toBe("label");
-        expect((result as any).value).toBe("hot-wallet");
+        expect((result as AddressSpecLabel).value).toBe("hot-wallet");
       });
 
       it("should treat unknown string as label", () => {
         const result = parseAddressSpec("unknown-label");
 
         expect(result.type).toBe("label");
-        expect((result as any).value).toBe("unknown-label");
+        expect((result as AddressSpecLabel).value).toBe("unknown-label");
       });
     });
 

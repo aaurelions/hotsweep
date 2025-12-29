@@ -4,13 +4,13 @@ import { privateKeyToAccount } from "viem/accounts";
 import { foundry } from "viem/chains";
 import fs from "fs";
 import path from "path";
-import { createServer } from "net";
+import { createServer, type AddressInfo } from "net";
 
 export const getFreePort = async (host = "localhost"): Promise<number> => {
   return new Promise((resolve, reject) => {
     const server = createServer();
     server.listen(0, host, () => {
-      const port = (server.address() as any).port;
+      const port = (server.address() as AddressInfo).port;
       server.close(() => resolve(port));
     });
     server.on("error", reject);

@@ -119,9 +119,9 @@ describe("address/generator", () => {
       });
 
       it("should throw when neither index nor count/endIndex provided", () => {
-        expect(() => generateAddresses(context, {} as any)).toThrow(
-          HotSweepError
-        );
+        expect(() =>
+          generateAddresses(context, {} as unknown as AddressOptions)
+        ).toThrow(HotSweepError);
       });
 
       it("should throw for zero count", () => {
