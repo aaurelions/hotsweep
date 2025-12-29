@@ -18,6 +18,7 @@ import type {
   TransferResult,
   SweepStrategy,
   CAIP2ChainId,
+  ChainConfig,
 } from "@hotsweep/types";
 import {
   HotSweepError,
@@ -190,7 +191,7 @@ async function executeSingleTransfer(
   context: TransferContext,
   client: PublicClient,
   chainId: CAIP2ChainId,
-  chainConfig: any,
+  chainConfig: ChainConfig,
   fromAddress: Address,
   fromIdentifier: string,
   toAddress: Address,

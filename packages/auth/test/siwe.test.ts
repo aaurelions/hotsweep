@@ -218,7 +218,9 @@ describe("auth/siwe", () => {
       const sessionId = createSession(sessionData);
       const session = getSession(sessionId);
       expect(session).not.toBeNull();
-      expect(session?.address).toBe("0x1230000000000000000000000000000000000000");
+      expect(session?.address).toBe(
+        "0x1230000000000000000000000000000000000000"
+      );
     });
 
     it("should return null for expired session", () => {
@@ -237,7 +239,8 @@ describe("auth/siwe", () => {
     });
 
     it("should clear sessions for address", () => {
-      const uniqueAddr = "0x4560000000000000000000000000000000000000" as Address;
+      const uniqueAddr =
+        "0x4560000000000000000000000000000000000000" as Address;
       const sessionDataUnique: SiweSession = {
         ...sessionData,
         address: uniqueAddr,

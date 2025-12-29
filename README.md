@@ -554,23 +554,23 @@ sweep balance --target 42 --chain eth
 
 Based on real-world scenarios with users having ONLY tokens (no ETH), HotSweep automatically determines the most gas-efficient strategy. Our benchmarks on local test environments (Anvil) show significant savings:
 
-| Users | LEGACY (baseline) | EIP-2612          | EIP-3009           | EIP-7702          | Winner   |
-| ----- | ----------------- | ----------------- | ------------------ | ----------------- | -------- |
-| 1     | 68,389            | 92,599+35% ❌     | 84,302+23% ❌      | 66,110-3.3% ✅    | EIP-7702 |
-| 5     | 256,433           | 298,925+16% ❌    | 218,990-14.6% ✅   | 262,150+2% ❌     | EIP-3009 |
-| 10    | 512,866           | 573,916+11% ❌    | 408,746-20.3% ✅   | 524,300+2% ❌     | EIP-3009 |
-| 25    | 1,282,165         | 1,398,900+9% ❌   | 977,762-23.7% ✅   | 1,310,750+2% ❌   | EIP-3009 |
-| 50    | 2,564,282         | 2,773,836+8% ❌   | 1,926,602-24.9% ✅ | 2,621,500+2% ❌   | EIP-3009 |
-| 100   | 5,128,624         | 5,523,835+7% ❌   | 3,823,718-25.4% ✅ | 5,243,000+2% ❌   | EIP-3009 |
+| Users | LEGACY (baseline) | EIP-2612        | EIP-3009           | EIP-7702        | Winner   |
+| ----- | ----------------- | --------------- | ------------------ | --------------- | -------- |
+| 1     | 68,389            | 92,599+35% ❌   | 84,302+23% ❌      | 66,110-3.3% ✅  | EIP-7702 |
+| 5     | 256,433           | 298,925+16% ❌  | 218,990-14.6% ✅   | 262,150+2% ❌   | EIP-3009 |
+| 10    | 512,866           | 573,916+11% ❌  | 408,746-20.3% ✅   | 524,300+2% ❌   | EIP-3009 |
+| 25    | 1,282,165         | 1,398,900+9% ❌ | 977,762-23.7% ✅   | 1,310,750+2% ❌ | EIP-3009 |
+| 50    | 2,564,282         | 2,773,836+8% ❌ | 1,926,602-24.9% ✅ | 2,621,500+2% ❌ | EIP-3009 |
+| 100   | 5,128,624         | 5,523,835+7% ❌ | 3,823,718-25.4% ✅ | 5,243,000+2% ❌ | EIP-3009 |
 
 ### Strategy Recommendations
 
-| Scenario                   | Recommended Strategy           | Reason                               |
-| -------------------------- | ------------------------------ | ------------------------------------ |
-| 1-2 users                  | EIP-7702 or LEGACY             | Minimal overhead for single calls    |
-| 5+ users with USDC/EURC    | EIP-3009 ✨                    | **Scaling King**: 15-25% gas savings |
-| High Gas Environments      | EIP-3009 or EIP-7702           | Eliminates source funding overhead   |
-| Standard ERC20 fallback    | LEGACY                         | Simplest, works for all tokens       |
+| Scenario                | Recommended Strategy | Reason                               |
+| ----------------------- | -------------------- | ------------------------------------ |
+| 1-2 users               | EIP-7702 or LEGACY   | Minimal overhead for single calls    |
+| 5+ users with USDC/EURC | EIP-3009 ✨          | **Scaling King**: 15-25% gas savings |
+| High Gas Environments   | EIP-3009 or EIP-7702 | Eliminates source funding overhead   |
+| Standard ERC20 fallback | LEGACY               | Simplest, works for all tokens       |
 
 > **Note**: EIP-2612 (Permit) becomes efficient only at extremely large batch sizes or when combined with custom relayer logic. HotSweep defaults to Legacy for Permit tokens in small batches to ensure lowest total gas consumption.
 

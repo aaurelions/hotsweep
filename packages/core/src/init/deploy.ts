@@ -183,7 +183,7 @@ export async function checkAnvilConnection(
       }),
     });
 
-    const data = (await response.json()) as any;
+    const data = (await response.json()) as { result: string };
     return data.result === "0x7a69"; // 31337 in hex
   } catch {
     return false;
