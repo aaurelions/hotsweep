@@ -110,6 +110,18 @@ export async function transferCommand(
   }
 }
 
+interface BatchEntry {
+  from?: string | { value: string };
+  to?: string | { value: string };
+  chain?: string;
+  chainId?: string;
+  token: string;
+  amount: string;
+  ref?: string;
+  reference?: string;
+  strategy?: SweepStrategy;
+}
+
 async function executeBatchTransfer(
   options: TransferCommandOptions
 ): Promise<void> {
@@ -121,7 +133,7 @@ async function executeBatchTransfer(
   }
 
   const content = fs.readFileSync(batchPath, "utf-8");
-  let batches: any[];
+  let batches: BatchEntry[];
 
   if (batchPath.endsWith(".csv")) {
     // Parse CSV
@@ -133,7 +145,7 @@ async function executeBatchTransfer(
       headers.forEach((h, i) => {
         obj[h] = values[i] ?? "";
       });
-      return obj;
+      return obj as unknown as BatchEntry;
     });
   } else {
     // Parse JSON
@@ -153,11 +165,15 @@ async function executeBatchTransfer(
   for (let i = 0; i < batches.length; i += parallel) {
     const batch = batches.slice(i, i + parallel);
 
-    const promises = batch.map(async (entry: any) => {
+    const promises = batch.map(async (entry: BatchEntry) => {
+      const fromVal =
+        typeof entry.from === "object" ? entry.from.value : entry.from;
+      const toVal = typeof entry.to === "object" ? entry.to.value : entry.to;
+
       const transferOptions: TransferOptions = {
-        from: entry.from?.value ?? entry.from,
-        to: entry.to?.value ?? entry.to,
-        chain: entry.chainId ?? entry.chain,
+        from: fromVal!,
+        to: toVal!,
+        chain: entry.chainId ?? entry.chain!,
         token: entry.token,
         amount: entry.amount,
         ref: entry.reference ?? entry.ref,

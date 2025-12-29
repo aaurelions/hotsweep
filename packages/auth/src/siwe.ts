@@ -191,7 +191,7 @@ export async function verifySiweSignature(
     parsed.address &&
     validateSiweMessage({
       address: parsed.address,
-      message: parsed as any,
+      message: parsed as SiweMessage,
     });
 
   if (!isMessageValid) {

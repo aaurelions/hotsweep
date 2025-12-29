@@ -201,28 +201,28 @@ describe("auth/siwe", () => {
   });
 
   describe("Session Management", () => {
-    const sessionData = {
-      address: "0x123" as any,
+    const sessionData: SiweSession = {
+      address: "0x1230000000000000000000000000000000000000" as Address,
       chainId: 1,
       isValid: true,
       data: {
-        address: "0x123",
+        address: "0x1230000000000000000000000000000000000000" as Address,
         chainId: 1,
         domain: "ex.com",
         nonce: "123",
         issuedAt: new Date().toISOString(),
-      } as any,
+      },
     };
 
     it("should create and get a session", () => {
       const sessionId = createSession(sessionData);
       const session = getSession(sessionId);
       expect(session).not.toBeNull();
-      expect(session?.address).toBe("0x123");
+      expect(session?.address).toBe("0x1230000000000000000000000000000000000000");
     });
 
     it("should return null for expired session", () => {
-      const expiredSession = {
+      const expiredSession: SiweSession = {
         ...sessionData,
         expiresAt: new Date(Date.now() - 1000),
       };
@@ -237,8 +237,12 @@ describe("auth/siwe", () => {
     });
 
     it("should clear sessions for address", () => {
-      const uniqueAddr = "0x456" as any;
-      const sessionDataUnique = { ...sessionData, address: uniqueAddr };
+      const uniqueAddr = "0x4560000000000000000000000000000000000000" as Address;
+      const sessionDataUnique: SiweSession = {
+        ...sessionData,
+        address: uniqueAddr,
+        data: { ...sessionData.data, address: uniqueAddr },
+      };
       createSession(sessionDataUnique);
       createSession(sessionDataUnique);
       const cleared = clearSessionsForAddress(uniqueAddr);

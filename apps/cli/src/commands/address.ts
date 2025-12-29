@@ -76,13 +76,17 @@ export async function addressCommand(
     };
 
     if (options.index !== undefined) {
-      (addressOptions as any).index = options.index;
+      (addressOptions as AddressOptions & { index: number }).index =
+        options.index;
     } else {
-      (addressOptions as any).startIndex = options.start ?? 0;
+      (addressOptions as AddressOptions & { startIndex: number }).startIndex =
+        options.start ?? 0;
       if (options.count !== undefined) {
-        (addressOptions as any).count = options.count;
+        (addressOptions as AddressOptions & { count: number }).count =
+          options.count;
       } else if (options.end !== undefined) {
-        (addressOptions as any).endIndex = options.end;
+        (addressOptions as AddressOptions & { endIndex: number }).endIndex =
+          options.end;
       }
     }
 
