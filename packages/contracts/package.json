@@ -1,0 +1,38 @@
+{
+  "name": "@hotsweep/contracts",
+  "version": "0.0.1",
+  "description": "Smart contracts for HotSweep sweep strategies",
+  "files": [
+    "out",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test -vvv",
+    "test:unit": "forge test",
+    "test:integration": "forge test",
+    "test:coverage": "forge coverage",
+    "test:gas": "forge test --gas-report",
+    "deploy:local": "forge script script/DeployTest.s.sol --rpc-url http://localhost:8545 --broadcast",
+    "deploy:testnet": "forge script script/Deploy.s.sol --rpc-url $RPC_URL --broadcast --verify",
+    "verify": "forge verify-contract",
+    "clean": "forge clean",
+    "format": "forge fmt",
+    "snapshot": "forge snapshot"
+  },
+  "keywords": [
+    "hotsweep",
+    "solidity",
+    "smart-contracts",
+    "ethereum",
+    "eip-7702",
+    "eip-2612",
+    "eip-3009"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

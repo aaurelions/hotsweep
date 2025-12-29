@@ -1,0 +1,60 @@
+{
+  "name": "@hotsweep/cli",
+  "version": "0.0.1",
+  "description": "Command-line interface for HotSweep",
+  "type": "module",
+  "bin": {
+    "sweep": "./dist/bin/sweep.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:integration": "vitest run",
+    "test:coverage": "vitest run",
+    "clean": "rm -rf dist node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage && prettier --check \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "lint:fix": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage --fix && prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\""
+  },
+  "keywords": [
+    "hotsweep",
+    "cli",
+    "command-line",
+    "hd-wallet"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@hotsweep/core": "workspace:*",
+    "@hotsweep/types": "workspace:*",
+    "chalk": "^5.6.2",
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.2",
+    "dotenv": "^17.2.3",
+    "fast-csv": "^5.0.5",
+    "inquirer": "^13.1.0",
+    "ora": "^9.0.0",
+    "viem": "^2.43.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.9",
+    "prool": "^0.2.1",
+    "tsdown": "^0.18.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  }
+}

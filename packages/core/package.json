@@ -1,0 +1,106 @@
+{
+  "name": "@hotsweep/core",
+  "version": "0.0.1",
+  "description": "Core SDK for HotSweep HD wallet operations",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./wallet": {
+      "types": "./dist/wallet.d.ts",
+      "import": "./dist/wallet.mjs",
+      "require": "./dist/wallet.js"
+    },
+    "./address": {
+      "types": "./dist/address.d.ts",
+      "import": "./dist/address.mjs",
+      "require": "./dist/address.js"
+    },
+    "./config": {
+      "types": "./dist/config.d.ts",
+      "import": "./dist/config.mjs",
+      "require": "./dist/config.js"
+    },
+    "./chain": {
+      "types": "./dist/chain.d.ts",
+      "import": "./dist/chain.mjs",
+      "require": "./dist/chain.js"
+    },
+    "./balance": {
+      "types": "./dist/balance.d.ts",
+      "import": "./dist/balance.mjs",
+      "require": "./dist/balance.js"
+    },
+    "./transfer": {
+      "types": "./dist/transfer.d.ts",
+      "import": "./dist/transfer.mjs",
+      "require": "./dist/transfer.js"
+    },
+    "./init": {
+      "types": "./dist/init.d.ts",
+      "import": "./dist/init.mjs",
+      "require": "./dist/init.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:integration": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "clean": "rm -rf dist coverage node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage && prettier --check \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "lint:fix": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage --fix && prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\""
+  },
+  "keywords": [
+    "hotsweep",
+    "hd-wallet",
+    "bip32",
+    "bip39",
+    "bip44",
+    "ethereum",
+    "evm",
+    "sweep",
+    "deposit-addresses"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@hotsweep/types": "workspace:*",
+    "@scure/bip32": "^2.0.1",
+    "@scure/bip39": "^2.0.1",
+    "dotenv": "^17.2.3",
+    "lru-cache": "^11.2.4",
+    "viem": "^2.43.3",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@vitest/coverage-v8": "^4.0.16",
+    "eslint": "^9.39.2",
+    "prool": "^0.2.1",
+    "tsdown": "^0.18.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "peerDependencies": {
+    "viem": "^2.0.0"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "version": "2.0.0",
+  "chains": {
+    "eip155:1": {
+      "namespace": "eip155",
+      "chainId": 1,
+      "name": "ethereum",
+      "aliases": ["eth", "mainnet", "ethereum-mainnet"],
+      "coinType": 60,
+      "enabled": true,
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "blockTime": 12000,
+      "rpcUrls": {
+        "default": {
+          "http": ["https://eth.merkle.io"]
+        }
+      },
+      "blockExplorers": {
+        "default": {
+          "name": "Etherscan",
+          "url": "https://etherscan.io",
+          "apiUrl": "https://api.etherscan.io/api"
+        }
+      },
+      "contracts": {
+        "multicall3": {
+          "address": "0xca11bde05977b3631167028862be2a173976ca11",
+          "blockCreated": 14353601
+        }
+      }
+    },
+    "eip155:137": {
+      "namespace": "eip155",
+      "chainId": 137,
+      "name": "polygon",
+      "aliases": ["pol", "matic"],
+      "coinType": 60,
+      "enabled": true,
+      "nativeCurrency": {
+        "name": "POL",
+        "symbol": "POL",
+        "decimals": 18
+      },
+      "blockTime": 2000,
+      "rpcUrls": {
+        "default": {
+          "http": ["https://polygon-rpc.com"]
+        }
+      },
+      "blockExplorers": {
+        "default": {
+          "name": "PolygonScan",
+          "url": "https://polygonscan.com",
+          "apiUrl": "https://api.polygonscan.com/api"
+        }
+      },
+      "contracts": {
+        "multicall3": {
+          "address": "0xca11bde05977b3631167028862be2a173976ca11",
+          "blockCreated": 25770160
+        }
+      }
+    },
+    "eip155:31337": {
+      "namespace": "eip155",
+      "chainId": 31337,
+      "name": "anvil-testnet",
+      "aliases": ["anvil", "localhost"],
+      "coinType": 60,
+      "enabled": true,
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "rpcUrls": {
+        "default": {
+          "http": ["http://127.0.0.1:8545"],
+          "webSocket": ["ws://127.0.0.1:8545"]
+        }
+      },
+      "contracts": {
+        "hotsweep": {
+          "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "blockCreated": 0
+        }
+      }
+    }
+  },
+  "wallets": {
+    "deployer": {
+      "address": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "chains": ["eip155:1", "eip155:137", "eip155:31337"],
+      "enabled": true,
+      "description": "Contract deployer wallet",
+      "keySource": {
+        "type": "env",
+        "variable": "SWEEP_DEPLOYER_PRIVATE_KEY"
+      }
+    },
+    "hot-wallet": {
+      "address": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "chains": ["eip155:1", "eip155:137", "eip155:31337"],
+      "enabled": true,
+      "description": "Main hot wallet for sweeps",
+      "keySource": {
+        "type": "env",
+        "variable": "SWEEP_HOT_WALLET_PRIVATE_KEY"
+      }
+    }
+  },
+  "tokens": {
+    "eip155:1": {
+      "ETH": {
+        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        "enabled": true
+      },
+      "USDC": {
+        "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "enabled": true,
+        "decimals": 6,
+        "strategy": "eip3009"
+      },
+      "USDT": {
+        "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "enabled": true,
+        "decimals": 6,
+        "strategy": "legacy"
+      }
+    },
+    "eip155:137": {
+      "POL": {
+        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        "enabled": true
+      },
+      "USDC": {
+        "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+        "enabled": true,
+        "decimals": 6,
+        "strategy": "eip3009"
+      },
+      "USDC.e": {
+        "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "enabled": true,
+        "decimals": 6,
+        "strategy": "eip2612"
+      }
+    },
+    "eip155:31337": {
+      "ETH": {
+        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        "enabled": true
+      },
+      "LGCY": {
+        "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "enabled": true,
+        "decimals": 18,
+        "strategy": "legacy"
+      },
+      "DLGT": {
+        "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "enabled": true,
+        "decimals": 18,
+        "strategy": "eip7702"
+      },
+      "PRMT": {
+        "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+        "enabled": true,
+        "decimals": 18,
+        "strategy": "eip2612"
+      },
+      "USDC": {
+        "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+        "enabled": true,
+        "decimals": 6,
+        "strategy": "eip3009"
+      }
+    }
+  },
+  "settings": {
+    "batchSize": 20,
+    "parallelChains": true,
+    "retryAttempts": 3,
+    "retryDelay": 5000
+  },
+  "cache": {
+    "queueTTL": 60,
+    "sweepCooldown": 30,
+    "maxQueueSize": 10000,
+    "cleanupInterval": 60
+  }
+}

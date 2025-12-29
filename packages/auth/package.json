@@ -1,0 +1,57 @@
+{
+  "name": "@hotsweep/auth",
+  "version": "0.0.1",
+  "description": "SIWE Authentication for HotSweep",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:integration": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "clean": "rm -rf dist node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage && prettier --check \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "lint:fix": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage --fix && prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\""
+  },
+  "keywords": [
+    "hotsweep",
+    "siwe",
+    "authentication",
+    "ethereum",
+    "sign-in"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "viem": "^2.43.3"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.16",
+    "tsdown": "^0.18.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "peerDependencies": {
+    "viem": "^2.0.0"
+  }
+}
