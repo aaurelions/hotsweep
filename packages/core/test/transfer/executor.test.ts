@@ -11,8 +11,11 @@ import {
 import {
   type TransferOptions,
   type HotSweepConfig,
+  type SweepStrategy,
   ErrorCodes,
 } from "@hotsweep/types";
+
+        strategy: "unsupported" as SweepStrategy,
 import { startTestEnv } from "../prool";
 import { clearClientCache } from "../../src/chain/client";
 

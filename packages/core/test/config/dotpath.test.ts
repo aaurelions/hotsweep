@@ -229,7 +229,9 @@ describe("config/dotpath", () => {
         "value"
       );
 
-      expect((result.settings as any).newSetting.nested).toBe("value");
+      expect(
+        (result.settings as { newSetting: { nested: string } }).newSetting.nested
+      ).toBe("value");
     });
 
     it("should set array value", () => {
