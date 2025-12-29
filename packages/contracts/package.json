@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/contracts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Smart contracts for HotSweep sweep strategies",
   "files": [
     "out",
@@ -24,13 +24,23 @@
   },
   "keywords": [
     "hotsweep",
-    "solidity",
     "smart-contracts",
-    "ethereum",
-    "eip-7702",
+    "solidity",
+    "foundry",
+    "eip-3009",
     "eip-2612",
-    "eip-3009"
+    "erc20"
   ],
+  "author": "HotSweep Team <hello@hotsweep.xyz>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaurelions/hotsweep.git",
+    "directory": "packages/contracts"
+  },
+  "homepage": "https://github.com/aaurelions/hotsweep/tree/main/packages/contracts#readme",
+  "bugs": {
+    "url": "https://github.com/aaurelions/hotsweep/issues"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"

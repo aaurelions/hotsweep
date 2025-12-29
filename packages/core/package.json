@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Core SDK for HotSweep HD wallet operations",
   "type": "module",
   "main": "./dist/index.js",
@@ -78,6 +78,16 @@
     "sweep",
     "deposit-addresses"
   ],
+  "author": "HotSweep Team <hello@hotsweep.xyz>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaurelions/hotsweep.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/aaurelions/hotsweep/tree/main/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/aaurelions/hotsweep/issues"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"

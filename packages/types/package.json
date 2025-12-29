@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/types",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "TypeScript types for HotSweep SDK",
   "type": "module",
   "main": "./dist/index.js",
@@ -60,15 +60,19 @@
     "hotsweep",
     "types",
     "typescript",
-    "hd-wallet",
-    "ethereum"
+    "sdk"
   ],
-  "license": "MIT",
+  "author": "HotSweep Team <hello@hotsweep.xyz>",
   "repository": {
     "type": "git",
     "url": "https://github.com/hotsweep/hotsweep.git",
     "directory": "packages/types"
   },
+  "homepage": "https://github.com/aaurelions/hotsweep/tree/main/packages/types#readme",
+  "bugs": {
+    "url": "https://github.com/aaurelions/hotsweep/issues"
+  },
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },

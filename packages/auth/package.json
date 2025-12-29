@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/auth",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "SIWE Authentication for HotSweep",
   "type": "module",
   "main": "./dist/index.js",
@@ -33,11 +33,22 @@
   },
   "keywords": [
     "hotsweep",
+    "auth",
     "siwe",
-    "authentication",
+    "eip-4361",
     "ethereum",
-    "sign-in"
+    "login"
   ],
+  "author": "HotSweep Team <hello@hotsweep.xyz>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaurelions/hotsweep.git",
+    "directory": "packages/auth"
+  },
+  "homepage": "https://github.com/aaurelions/hotsweep/tree/main/packages/auth#readme",
+  "bugs": {
+    "url": "https://github.com/aaurelions/hotsweep/issues"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
