@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/types",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "TypeScript types for HotSweep SDK",
   "type": "module",
   "main": "./dist/index.js",
@@ -9,33 +9,48 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./init": {
       "types": "./dist/init.types.d.ts",
-      "import": "./dist/init.types.mjs",
-      "require": "./dist/init.types.js"
+      "import": "./dist/init.types.js",
+      "require": "./dist/init.types.cjs"
     },
     "./address": {
       "types": "./dist/address.types.d.ts",
-      "import": "./dist/address.types.mjs",
-      "require": "./dist/address.types.js"
+      "import": "./dist/address.types.js",
+      "require": "./dist/address.types.cjs"
     },
     "./balance": {
       "types": "./dist/balance.types.d.ts",
-      "import": "./dist/balance.types.mjs",
-      "require": "./dist/balance.types.js"
+      "import": "./dist/balance.types.js",
+      "require": "./dist/balance.types.cjs"
     },
     "./transfer": {
       "types": "./dist/transfer.types.d.ts",
-      "import": "./dist/transfer.types.mjs",
-      "require": "./dist/transfer.types.js"
+      "import": "./dist/transfer.types.js",
+      "require": "./dist/transfer.types.cjs"
     },
     "./config": {
       "types": "./dist/config.types.d.ts",
-      "import": "./dist/config.types.mjs",
-      "require": "./dist/config.types.js"
+      "import": "./dist/config.types.js",
+      "require": "./dist/config.types.cjs"
+    },
+    "./api": {
+      "types": "./dist/api.types.d.ts",
+      "import": "./dist/api.types.js",
+      "require": "./dist/api.types.cjs"
+    },
+    "./cache": {
+      "types": "./dist/cache.types.d.ts",
+      "import": "./dist/cache.types.js",
+      "require": "./dist/cache.types.cjs"
+    },
+    "./errors": {
+      "types": "./dist/errors.types.d.ts",
+      "import": "./dist/errors.types.js",
+      "require": "./dist/errors.types.cjs"
     }
   },
   "files": [

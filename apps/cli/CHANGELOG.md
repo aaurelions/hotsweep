@@ -1,5 +1,14 @@
 # @hotsweep/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- fix: correct package exports to match build output filenames
+- Updated dependencies
+  - @hotsweep/core@0.0.4
+  - @hotsweep/types@0.0.4
+
 ## 0.0.4
 
 ### Patch Changes

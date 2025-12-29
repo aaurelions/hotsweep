@@ -1,16 +1,16 @@
 {
   "name": "@hotsweep/auth",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "SIWE Authentication for HotSweep",
   "type": "module",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [

@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Core SDK for HotSweep HD wallet operations",
   "type": "module",
   "main": "./dist/index.js",
@@ -10,42 +10,42 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs"
     },
     "./wallet": {
       "types": "./dist/wallet.d.ts",
       "import": "./dist/wallet.mjs",
-      "require": "./dist/wallet.js"
+      "require": "./dist/wallet.cjs"
     },
     "./address": {
       "types": "./dist/address.d.ts",
       "import": "./dist/address.mjs",
-      "require": "./dist/address.js"
+      "require": "./dist/address.cjs"
     },
     "./config": {
       "types": "./dist/config.d.ts",
       "import": "./dist/config.mjs",
-      "require": "./dist/config.js"
+      "require": "./dist/config.cjs"
     },
     "./chain": {
       "types": "./dist/chain.d.ts",
       "import": "./dist/chain.mjs",
-      "require": "./dist/chain.js"
+      "require": "./dist/chain.cjs"
     },
     "./balance": {
       "types": "./dist/balance.d.ts",
       "import": "./dist/balance.mjs",
-      "require": "./dist/balance.js"
+      "require": "./dist/balance.cjs"
     },
     "./transfer": {
       "types": "./dist/transfer.d.ts",
       "import": "./dist/transfer.mjs",
-      "require": "./dist/transfer.js"
+      "require": "./dist/transfer.cjs"
     },
     "./init": {
       "types": "./dist/init.d.ts",
       "import": "./dist/init.mjs",
-      "require": "./dist/init.js"
+      "require": "./dist/init.cjs"
     }
   },
   "files": [
