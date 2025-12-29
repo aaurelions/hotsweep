@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Core SDK for HotSweep HD wallet operations",
   "type": "module",
   "main": "./dist/index.js",
