@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/auth",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SIWE Authentication for HotSweep",
   "type": "module",
   "main": "./dist/index.js",

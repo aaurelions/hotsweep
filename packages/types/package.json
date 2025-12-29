@@ -1,6 +1,6 @@
 {
   "name": "@hotsweep/types",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TypeScript types for HotSweep SDK",
   "type": "module",
   "main": "./dist/index.js",
