@@ -27,8 +27,8 @@
     "test:coverage": "vitest run --coverage",
     "clean": "rm -rf dist node_modules",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage && prettier --check \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
-    "lint:fix": "eslint . --ext .ts --ignore-pattern dist --ignore-pattern coverage --fix && prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "lint": "eslint . && prettier --check \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
+    "lint:fix": "eslint . --fix && prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\"",
     "format": "prettier --write \"**/*.{ts,js,json,md}\" \"!dist/**\" \"!coverage/**\""
   },
   "keywords": [
