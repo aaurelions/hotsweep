@@ -3,7 +3,6 @@
  */
 import chalk from "chalk";
 import ora from "ora";
-import * as fs from "node:fs";
 import {
   loadConfig,
   saveConfig,
