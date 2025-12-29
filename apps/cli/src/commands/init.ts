@@ -3,13 +3,16 @@
  */
 import chalk from "chalk";
 import ora from "ora";
+import * as fs from "node:fs";
 import {
   loadConfig,
+  saveConfig,
   loadEnv,
   checkAnvilConnection,
   initTestEnvironment,
 } from "@hotsweep/core";
-import type { InitOptions } from "@hotsweep/types";
+import type { InitOptions, HotSweepConfig } from "@hotsweep/types";
+import { HotSweepError, ErrorCodes } from "@hotsweep/types";
 
 export async function initCommand(options: InitOptions): Promise<void> {
   const spinner = ora();
@@ -33,8 +36,50 @@ export async function initCommand(options: InitOptions): Promise<void> {
 
       // Load config
       spinner.start("Loading configuration...");
-      const config = loadConfig(options.config);
-      spinner.succeed(`Configuration loaded (version ${config.version})`);
+      let config: HotSweepConfig;
+      const configPath = options.config ?? "./hotsweep.json";
+
+      try {
+        config = loadConfig(options.config);
+        spinner.succeed(`Configuration loaded (version ${config.version})`);
+      } catch (error) {
+        if (
+          error instanceof HotSweepError &&
+          error.code === ErrorCodes.CONFIG_NOT_FOUND
+        ) {
+          spinner.info(
+            "Configuration not found, creating default test config..."
+          );
+          config = {
+            version: "2.0.0",
+            chains: {
+              "eip155:31337": {
+                namespace: "eip155",
+                chainId: 31337,
+                name: "anvil",
+                coinType: 60,
+                enabled: true,
+                nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+                rpcUrls: {
+                  default: { http: ["http://127.0.0.1:8545"] },
+                },
+              },
+            },
+            wallets: {},
+            tokens: {},
+            settings: {
+              batchSize: 10,
+              parallelChains: true,
+              retryAttempts: 1,
+              retryDelay: 100,
+            },
+          };
+          saveConfig(config, configPath);
+          spinner.succeed(`Created default configuration: ${configPath}`);
+        } else {
+          throw error;
+        }
+      }
 
       // Initialize test environment
       spinner.start("Initializing test environment...");
