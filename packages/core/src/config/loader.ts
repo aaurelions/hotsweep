@@ -126,7 +126,7 @@ export function loadConfigFromPath(configPath: string): HotSweepConfig {
       throw new HotSweepError({
         code: ErrorCodes.CONFIG_INVALID,
         message: `Configuration validation failed: ${result.error.message}`,
-        context: { errors: result.error.errors },
+        context: { errors: result.error.issues },
       });
     }
 
