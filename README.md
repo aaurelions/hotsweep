@@ -512,6 +512,84 @@ sweep config del chains.eip155:137
 }
 ```
 
+test:
+
+```json
+{
+  "version": "2.0.0",
+  "chains": {
+    "eip155:31337": {
+      "namespace": "eip155",
+      "chainId": 31337,
+      "name": "ethereum",
+      "aliases": ["eth", "mainnet"],
+      "coinType": 60,
+      "enabled": true,
+      "nativeCurrency": {
+        "decimals": 18,
+        "name": "Ether",
+        "symbol": "ETH"
+      },
+      "rpcUrls": {
+        "default": {
+          "http": ["http://127.0.0.1:8545"],
+          "webSocket": ["ws://127.0.0.1:8545"]
+        }
+      },
+      "contracts": {
+        "hotsweep": {
+          "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "blockCreated": 0
+        }
+      }
+    }
+  },
+  "wallets": {
+    "hot-wallet": {
+      "address": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "chains": ["eip155:31337"],
+      "enabled": true,
+      "keySource": {
+        "type": "env",
+        "variable": "SWEEP_HOT_WALLET_PRIVATE_KEY"
+      }
+    }
+  },
+  "tokens": {
+    "eip155:31337": {
+      "ETH": {
+        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        "enabled": true
+      },
+      "LGCY": {
+        "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c6475",
+        "enabled": true
+      },
+      "DLGT": {
+        "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c6476",
+        "enabled": true
+      },
+      "PRMT": {
+        "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c6477",
+        "enabled": true
+      },
+      "USDC": {
+        "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "enabled": true,
+        "decimals": 6,
+        "strategy": "eip3009"
+      }
+    }
+  },
+  "settings": {
+    "batchSize": 20,
+    "parallelChains": true,
+    "retryAttempts": 3,
+    "retryDelay": 5000
+  }
+}
+```
+
 ### Environment Variables
 
 ```bash

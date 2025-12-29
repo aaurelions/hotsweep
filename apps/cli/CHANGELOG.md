@@ -1,5 +1,11 @@
 # @hotsweep/cli
 
+## 0.0.6
+
+### Patch Changes
+
+- feat: generate full configuration and .env file during init --test
+
 ## 0.0.5
 
 ### Patch Changes
