@@ -263,7 +263,7 @@ async function executeSingleTransfer(
       from: { identifier: fromIdentifier, address: fromAddress },
       to: { identifier: toIdentifier, address: toAddress },
       chain: {
-        id: chainConfig.chainId,
+        id: chainConfig.chainId!,
         name: chainConfig.name,
         caip2Id: chainId,
       },
@@ -446,11 +446,12 @@ async function executeSingleTransfer(
     success: true,
     from: { identifier: fromIdentifier, address: fromAddress },
     to: { identifier: toIdentifier, address: toAddress },
-    chain: {
-      id: chainConfig.chainId,
-      name: chainConfig.name,
-      caip2Id: chainId,
-    },
+          chain: {
+            id: chainConfig.chainId!,
+            name: chainConfig.name,
+            caip2Id: chainId,
+          },
+    
     token: { symbol, address: tokenAddress },
     amount: {
       value: formatUnits(transferAmount, decimals),
